@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
     LoginResponseModel? loginResponseModel;
     Map<String, String> body = {"email": email, "password": password};
     var response = await myHttp
-        .post(Uri.parse('http://127.0.0.1:8000/api/login'), body: body);
+        .post(Uri.parse('http://10.0.2.2:8000/api/login'), body: body);
     if (response.statusCode == 401) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Email atau Password salah")));
@@ -122,7 +122,11 @@ class _LoginPageState extends State<LoginPage> {
                 obscureText: true,
               ),
               const SizedBox(height: 8.0),
-              Text('Forget Password ?', style: TextStyles.body),
+              Text('Forget Password ?',
+                  style: TextStyles.body.copyWith(
+                    fontSize: 18.0,
+                    color: AppColors.drakBlue,
+                  )),
               const SizedBox(height: 20.0),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
