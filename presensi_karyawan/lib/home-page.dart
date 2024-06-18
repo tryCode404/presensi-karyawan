@@ -38,7 +38,8 @@ class _HomePageState extends State<HomePage> {
       'Authorization': 'Bearer ' + await _token
     };
     var response = await myHttp.get(
-        Uri.parse('http://10.0.2.2:8000/api/get-presensi'),
+        Uri.parse(
+            'https://presensikaryawantrycode404.000webhostapp/get-presensi'),
         headers: headres);
     homeResponseModel = HomeResponseModel.fromJson(json.decode(response.body));
     riwayat.clear();
